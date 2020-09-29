@@ -13,8 +13,8 @@ from telegram.ext import Updater,CommandHandler,MessageHandler,Filters
 	  send_value(1)
 	
 
-	ADAFRUIT_IO_USERNAME = os.getenv('ADAFRUIT_IO_USERNAME')
-	ADAFRUIT_IO_KEY = os.getenv('ADAFRUIT_IO_KEY')
+	ADAFRUIT_IO_USERNAME = os.getenv('YOUR_ADAFRUIT_IO_USERNAME')
+	ADAFRUIT_IO_KEY = os.getenv('YOUR_ADAFRUIT_IO_KEY')
 	aio = Client(ADAFRUIT_IO_USERNAME,ADAFRUIT_IO_KEY)
 	def send_value(value):
 	  bot = aio.feeds('bot')
@@ -36,12 +36,12 @@ from telegram.ext import Updater,CommandHandler,MessageHandler,Filters
 	    
 def start(update,context):
 	  start_message='''
-	/turnoffthelight or 'turn off':To turn off the led
-	/turnonthelight or 'turn on'  :To turn on the led 
+	/turnoffthelight :To turn off the led
+	/turnonthelight :To turn on the led 
 	'''
 	  context.bot.send_message(chat_id=update.effective_chat.id, text=start_message)
 	
-  TOKEN =os.getenv('TOKEN')
+  TOKEN =os.getenv('YOUR_TOKEN')
 	
 	u=Updater(TOKEN,use_context=True)
 	dp= u.dispatcher
